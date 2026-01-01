@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<!-- Name of the Suite -->
+<suite name="Islahi Art Automation Suite" parallel="methods" thread-count="3">
+
+    <listeners>
+        <listener class-name="IslahiArt.TestListener"/>
+    </listeners>
+
+    <!-- Test Module Name -->
+    <test name="Home Page Tests">
+        <classes>
+            <!-- Link to your Java Test Classes -->
+            <class name="IslahiArt.HomePageTest"/>
+        </classes>
+    </test>
+
+</suite>
