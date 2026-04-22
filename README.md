@@ -1,4 +1,5 @@
 ![Build Status](https://github.com/syedymn/IslahiArt-Automation-Framework/actions/workflows/maven.yml/badge.svg)
+
 # IslahiArt E-Commerce Automation Framework
 
 A robust, data-driven Hybrid Automation Framework built to test the IslahiArt E-Commerce platform. Designed for scalability, parallel execution, and detailed reporting.
