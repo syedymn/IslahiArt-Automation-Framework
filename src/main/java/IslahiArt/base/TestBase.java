@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -35,10 +36,18 @@ public class TestBase {
         // 2. We use a local variable first
         WebDriver driver = null;
 
-        if (browserName.equalsIgnoreCase("chrome")) {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-        } else if (browserName.equalsIgnoreCase("firefox")) {
+if (browserName.equalsIgnoreCase("chrome")) {
+    WebDriverManager.chromedriver().setup();
+    ChromeOptions options = new ChromeOptions();
+    String headlessProp = System.getProperty("headless", prop.getProperty("headless", "false"));
+    if (Boolean.parseBoolean(headlessProp)) {
+        options.addArguments("--headless=new");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--window-size=1920,1080");
+    }
+    driver = new ChromeDriver(options);
+} else if (browserName.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
         }
